@@ -8,10 +8,11 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Open OBS then go setting -> Stream -> Service -> Custom -> Server -> rtmp://localhost:9006 -> Stream key -> hehe.
-If you want to change stream key go lib/dem/application.ex. If you want to change server I don't know.
-
-Go to Membrane website to learn more.
+* NOTICE:
+- Open OBS then go setting -> Stream -> Service -> Custom -> Server -> rtmp://localhost:9006 -> Stream key -> hehe.
+- If you want to change stream key go lib/demo/application.ex. If you want to change server I don't know.
+- When you start a new stream all old stream will be delete If you want to change go to lib/demo/application.ex
+- Go to Membrane website to learn more.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
