@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+@import "https://cdn.vidstack.io/player/theme.css";
+@import "https://cdn.vidstack.io/player/video.css";
+@import "https://cdn.vidstack.io/player/playlist.css";
+@import "https://cdn.vidstack.io/player/quality.css";
+@import "https://cdn.vidstack.io/player/controls.css";
+@import "https://cdn.vidstack.io/player/overlay.css";
+@import "https://cdn.vidstack.io/player/ads.css";
+@import "https://cdn.vidstack.io/player/annotations.css";
+@import "https://cdn.vidstack.io/player/related.css";

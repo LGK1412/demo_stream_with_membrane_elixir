@@ -1,0 +1,36 @@
+<button id="convert-btn" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
+    Chuyển đổi và tải video
+  </button>
+  
+  <p id="loading-text" class="hidden text-red-500 mt-2">Đang tải, vui lòng chờ...</p>
+  
+  <a id="download-link" href="#" class="hidden px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+    Tải video stream
+  </a>
+  
+  <script>
+    document.getElementById("convert-btn").addEventListener("click", async () => {
+      let loadingText = document.getElementById("loading-text");
+      let downloadLink = document.getElementById("download-link");
+  
+      loadingText.classList.remove("hidden"); // Hiện loading
+      downloadLink.classList.add("hidden");   // Ẩn nút tải
+  
+      // Gửi yêu cầu chuyển đổi
+      await fetch("/convert");
+  
+      // Kiểm tra liên tục khi nào video sẵn sàng
+      let checkInterval = setInterval(async () => {
+        let response = await fetch("/check_status");
+        let result = await response.json();
+  
+        if (result.status === "done") {
+          clearInterval(checkInterval);
+          loadingText.classList.add("hidden"); // Ẩn loading
+          downloadLink.href = result.download_url;
+          downloadLink.classList.remove("hidden"); // Hiện nút tải
+        }
+      }, 3000); // Kiểm tra mỗi 3 giây
+    });
+  </script>
+  
