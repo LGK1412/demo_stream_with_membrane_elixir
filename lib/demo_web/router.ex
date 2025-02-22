@@ -23,6 +23,7 @@ defmodule DemoWeb.Router do
     get "/convert", VideoController, :convert_and_download
     get "/check_status", VideoController, :check_status
     get "/download/:filename", VideoController, :downloads
+    get "/download_file/:filename", VideoController, :download_file
   end
 
   # Other scopes may use custom stacks.

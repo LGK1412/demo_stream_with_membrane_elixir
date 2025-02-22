@@ -12,14 +12,4 @@ defmodule DemoWeb.HlsController do
       conn |> Plug.Conn.send_resp(404, "File not found")
     end
   end
-
-  def downloads(conn, %{"filename" => filename}) do
-    path = "./#{filename}"
-
-    if File.exists?(path) do
-      conn |> Plug.Conn.send_file(200, path)
-    else
-      conn |> Plug.Conn.send_resp(404, "File not found")
-    end
-  end
 end

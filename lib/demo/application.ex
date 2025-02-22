@@ -24,13 +24,22 @@ defmodule Demo.Application do
       # Xử lý các tác vụ khi bấm OBS stream (ví dụ như stream key)
       handle_new_client: fn client_ref, app, stream_key ->
         if stream_key == "hehe" do
+          Logger.info("Starting pipeline for stream key: #{stream_key}")
+
+          # Gọi modal xác nhận và nhận kết quả
+          result = confirm_action()
+          IO.puts("User selected: #{result}")
+          Logger.info("User selected: #{result}")
+          Logger.debug("User selected: #{result}")
+          # Xóa file output.mp4
+
           File.rm_rf("output.mp4")
 
           File.rm_rf("output")
 
           File.mkdir_p("output")
 
-          Logger.info("Starting pipeline for stream key: #{stream_key}")
+
 
           Logger.info("Client ref: #{inspect(client_ref)}")
 
@@ -49,7 +58,12 @@ defmodule Demo.Application do
           Logger.info("Client ref: #{inspect(client_ref)}")
 
           # ❌ pipeline_pid ở đây không có giá trị, phải lấy từ đâu đó
-          Membrane.Pipeline.terminate(client_ref, timeout: 5000, force?: false, asynchronous?: true)
+          Membrane.Pipeline.terminate(client_ref,
+            timeout: 5000,
+            force?: false,
+            asynchronous?: true
+          )
+
           {Demo.ClientHandler, %{pipeline: client_ref}}
         end
       end
@@ -82,4 +96,17 @@ defmodule Demo.Application do
     DemoWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  defp confirm_action do
+    topic = "confirm_modal"
+    parent = self()
+
+    # Gửi sự kiện yêu cầu xác nhận đến LiveView
+    Phoenix.PubSub.broadcast(Demo.PubSub, topic, {:show_modal, parent})
+
+    receive do
+      {:modal_result, response} -> response
+    end
+  end
+
 end
