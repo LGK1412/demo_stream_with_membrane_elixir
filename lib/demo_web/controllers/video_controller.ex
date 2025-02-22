@@ -94,15 +94,4 @@ defmodule DemoWeb.VideoController do
     end
   end
 
-  def check_video(conn, _params) do
-    IO.puts("Checking video...")
-
-    # Kiểm tra xem video đã được chuyển đổi chưa
-    if File.exists?("./output.mp4") do
-      json(conn, %{status: "done", download_url: "/download/output.mp4"})
-    else
-      json(conn, %{status: "processing"})
-    end
-  end
-
 end
