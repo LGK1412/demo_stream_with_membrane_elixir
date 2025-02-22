@@ -13,6 +13,8 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - If you want to change stream key go lib/demo/application.ex. If you want to change server I don't know.
 - When you start a new stream all old stream will be delete If you want to change go to lib/demo/application.ex
 - Go to Membrane website to learn more.
+- When you stream go to custom stream page click ok to stream
+- Click button "Chuyển đổi và tải video" to download video them wait for button "Tải video stream" to download video ok
 
 Vietnamese version: 
 
@@ -30,6 +32,8 @@ Lưu ý:
    - Nếu muốn đổi Stream Key, hãy vào file `lib/demo/application.ex`.
    - Khi bắt đầu stream mới, toàn bộ dữ liệu stream cũ sẽ bị xóa. Nếu muốn thay đổi, hãy sửa trong `lib/demo/application.ex`.
    - Để tìm hiểu thêm về Membrane, hãy truy cập trang web của họ.
+   - Khi bạn stream vào trang stream tùy chỉnh, nhấp vào ok để stream
+   - Nhấp vào nút "Chuyển đổi và tải video" để tải video xuống sau đó đợi nút "Tải luồng video" để tải video xuống là được
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
