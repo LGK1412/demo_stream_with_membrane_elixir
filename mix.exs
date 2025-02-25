@@ -55,6 +55,10 @@ defmodule Demo.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
+      {:ecto_sql, "~> 3.10"},
+      {:postgrex, ">= 0.0.0"},
+      {:httpoison, "~> 2.0"},
+      {:mime, "~> 2.0"},
 
       ## Membrane deps
       {:membrane_core, "~> 1.0"},

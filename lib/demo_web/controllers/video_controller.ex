@@ -1,5 +1,7 @@
 defmodule DemoWeb.VideoController do
   use DemoWeb, :controller
+  alias Demo.Videos
+  alias Demo.CloudinaryUploader
 
   def convert_and_download(conn, _params) do
     IO.puts("Starting conversion process...")
@@ -94,4 +96,21 @@ defmodule DemoWeb.VideoController do
     end
   end
 
+  def save_video(conn, %{"title" => title, "description" => description, "url" => url}) do
+    IO.puts("Saving video...")
+    IO.puts("Title: #{title}")
+    IO.puts("Description: #{description}")
+    IO.puts("URL: #{url}")
+    case Videos.create_video(%{title: title, description: description, url: url}) do
+      {:ok, video} -> json(conn, %{status: "ok", video: video})
+      {:error, changeset} -> json(conn, %{status: "error", errors: changeset.errors})
+    end
+  end
+
+  def get_upload_url(conn, _params) do
+    json(conn, %{
+      upload_url: CloudinaryUploader.get_upload_url(),
+      upload_preset: CloudinaryUploader.get_upload_preset()
+    })
+  end
 end

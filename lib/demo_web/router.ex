@@ -24,12 +24,22 @@ defmodule DemoWeb.Router do
     get "/check_status", VideoController, :check_status
     get "/download/:filename", VideoController, :downloads
     get "/download_file/:filename", VideoController, :download_file
+    post "/upload", VideoController, :upload
+    live "/videos", VideoListLive
+    live "/watch_video/:id", VideoLive
   end
 
   # Other scopes may use custom stacks.
   # scope "/api", DemoWeb do
   #   pipe_through :api
   # end
+
+  scope "/api", DemoWeb do
+    pipe_through :api
+    post "/save_video", VideoController, :save_video
+    post "/get_upload_url", VideoController, :get_upload_url
+  end
+
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:demo, :dev_routes) do

@@ -77,6 +77,8 @@ defmodule Demo.Application do
       },
       # Start the Telemetry supervisor
       DemoWeb.Telemetry,
+
+      Demo.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Demo.PubSub},
       # Start the Endpoint (http/https)

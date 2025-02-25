@@ -9,6 +9,18 @@ import Config
 
 config :demo,
   generators: [timestamp_type: :utc_datetime]
+  # Your database configuration here. Go to lib/demo/repo.ex to see the default configuration
+  # Change it.
+  config :demo, Demo.Repo,
+  username: "postgres",
+  password: "1412",
+  hostname: "172.18.138.0",
+  database: "demo_dev",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
+config :demo, ecto_repos: [Demo.Repo]
 
 # Configures the endpoint
 config :demo, DemoWeb.Endpoint,
