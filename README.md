@@ -5,7 +5,9 @@ To start your Phoenix server:
   * If you use window install WSL (Windows Subsystem for Linux) and install Ubuntu ask chatGPT if you don't know then clone this repo in WSL. Use WSL to run.
   * Run `mix deps.get` to install and setup dependencies then run `mix compile` any error go ask chatGPT.
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
-
+  * Go to Cloudinary make an account to get API then go to dev.exs.
+  * Change config your repo. Run `mix ecto.create` and i don't know just make sure your database can run.
+  
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 * NOTICE:
@@ -16,6 +18,9 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - When you stream go to custom stream page click ok to stream
 - Click button "Chuyển đổi và tải video" to download video them wait for button "Tải video stream" to download video ok
 
+- Go to Cloudinary make an account to get API then go to dev.exs.
+- Change config your repo. Run `mix ecto.create` and i don't know just make sure your database can run.
+
 Vietnamese version: 
 
 Hướng dẫn khởi động Phoenix server:
@@ -23,7 +28,8 @@ Hướng dẫn khởi động Phoenix server:
    * Chạy lệnh `mix deps.get` để cài đặt và thiết lập các dependencies, sau đó chạy `mix compile`. Nếu gặp lỗi, hãy hỏi ChatGPT.
    * Khởi động Phoenix server bằng lệnh `mix phx.server` hoặc chạy trong IEx với `iex -S mix phx.server`.
    * Bây giờ, bạn có thể truy cập `localhost:4000` trên trình duyệt.
-
+   * Vào Cloudinary tạo tài khoản để lấy API rồi vào dev.exs.
+   * Thay đổi cấu hình repo của bạn. Chạy `mix ecto.create` và tôi không biết chỉ cần đảm bảo cơ sở dữ liệu của bạn có thể chạy.
 Lưu ý:
    - Mở OBS, vào Cài đặt → Stream →
    - Service: Chọn Custom
