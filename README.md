@@ -18,9 +18,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - When you stream go to custom stream page click ok to stream
 - Click button "Chuyển đổi và tải video" to download video them wait for button "Tải video stream" to download video ok
 
-- Go to Cloudinary make an account to get API then go to dev.exs.
-- Change config your repo. Run `mix ecto.create` and i don't know just make sure your database can run.
-
 Vietnamese version: 
 
 Hướng dẫn khởi động Phoenix server:
