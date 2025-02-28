@@ -23,8 +23,12 @@ defmodule Demo.Application do
       ],
       # Xử lý các tác vụ khi bấm OBS stream (ví dụ như stream key)
       handle_new_client: fn client_ref, app, stream_key ->
-        if stream_key == "hehe" do
-          Logger.info("Starting pipeline for stream key: #{stream_key}")
+        stream_setting = Demo.Repo.get_by(Demo.StreamSetting, streamer_id: app)
+        stream_key_current = stream_setting && stream_setting.stream_key
+
+        Logger.info("stream_key_current: #{stream_key_current }")
+        if stream_key == stream_key_current and stream_setting != nil do
+          Logger.info("Starting pipeline for stream key: #{stream_key} + #{stream_key_current}")
 
           # Gọi modal xác nhận và nhận kết quả
           result = confirm_action()

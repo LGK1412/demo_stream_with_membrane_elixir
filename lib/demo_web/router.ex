@@ -27,6 +27,7 @@ defmodule DemoWeb.Router do
     post "/upload", VideoController, :upload
     live "/videos", VideoListLive
     live "/watch_video/:id", VideoLive
+    live "/stream_key", StreamSettingLive
   end
 
   # Other scopes may use custom stacks.

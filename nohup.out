@@ -1,0 +1,157 @@
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 13 (Ubuntu 13.2.0-23ubuntu3)
+  configuration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --disable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+  libavutil      58. 29.100 / 58. 29.100
+  libavcodec     60. 31.102 / 60. 31.102
+  libavformat    60. 16.100 / 60. 16.100
+  libavdevice    60.  3.100 / 60.  3.100
+  libavfilter     9. 12.100 /  9. 12.100
+  libswscale      7.  5.100 /  7.  5.100
+  libswresample   4. 12.100 /  4. 12.100
+  libpostproc    57.  3.100 / 57.  3.100
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-VERSION:7')
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-INDEPENDENT-SEGMENTS')
+[hls @ 0x560c4ba7e400] Opening './output/audio_master.m3u8' for reading
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-VERSION:7')
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-DISCONTINUITY-SEQUENCE:0')
+[hls @ 0x560c4ba7e400] Opening './output/video_1080p60.m3u8' for reading
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-VERSION:7')
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-DISCONTINUITY-SEQUENCE:0')
+[hls @ 0x560c4ba7e400] Opening './output/video_180p60.m3u8' for reading
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-VERSION:7')
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-DISCONTINUITY-SEQUENCE:0')
+[hls @ 0x560c4ba7e400] Opening './output/video_720p60.m3u8' for reading
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-VERSION:7')
+[hls @ 0x560c4ba7e400] Skip ('#EXT-X-DISCONTINUITY-SEQUENCE:0')
+[hls @ 0x560c4ba7e400] Opening './output/audio_header_audio_master_part_0.mp4' for reading
+[hls @ 0x560c4ba7e400] Opening './output/audio_segment_0_audio_master.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_header_video_1080p60_part_0.mp4' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_segment_0_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_header_video_180p60_part_0.mp4' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_segment_0_video_180p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_header_video_720p60_part_0.mp4' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_segment_0_video_720p60.m4s' for reading
+Input #0, hls, from './output/index.m3u8':
+  Duration: 00:01:20.43, start: 0.033000, bitrate: 0 kb/s
+  Program 0 
+    Metadata:
+      variant_bitrate : 4110145
+  Stream #0:0(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 158 kb/s (default)
+    Metadata:
+      variant_bitrate : 2429218
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+      comment         : audio_default_name
+  Stream #0:1(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 1920x1080, 2111 kb/s, 60 fps, 60 tbr, 61440 tbn (default)
+    Metadata:
+      variant_bitrate : 4110145
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+  Program 1 
+    Metadata:
+      variant_bitrate : 245374
+  Stream #0:0(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 158 kb/s (default)
+    Metadata:
+      variant_bitrate : 2429218
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+      comment         : audio_default_name
+  Stream #0:2(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 320x180, 161 kb/s, 60 fps, 60 tbr, 61440 tbn (default)
+    Metadata:
+      variant_bitrate : 245374
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+  Program 2 
+    Metadata:
+      variant_bitrate : 2429218
+  Stream #0:0(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 158 kb/s (default)
+    Metadata:
+      variant_bitrate : 2429218
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+      comment         : audio_default_name
+  Stream #0:3(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 1280x720, 1291 kb/s, 60 fps, 60 tbr, 61440 tbn (default)
+    Metadata:
+      variant_bitrate : 2429218
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+Stream mapping:
+  Stream #0:1 -> #0:0 (h264 (native) -> h264 (h264_nvenc))
+  Stream #0:0 -> #0:1 (aac (native) -> aac (native))
+Press [q] to stop, [?] for help
+Output #0, mp4, to './output.mp4':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, q=2-31, 2000 kb/s, 60 fps, 15360 tbn (default)
+    Metadata:
+      variant_bitrate : 4110145
+      handler_name    : VideoHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+      encoder         : Lavc60.31.102 h264_nvenc
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/2000000 buffer size: 4000000 vbv_delay: N/A
+  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      variant_bitrate : 2429218
+      handler_name    : SoundHandler
+      vendor_id       : [0][0][0][0]
+      major_brand     : iso5
+      minor_version   : 512
+      compatible_brands: iso6mp41
+      comment         : audio_default_name
+      encoder         : Lavc60.31.102 aac
+frame=    0 fps=0.0 q=0.0 size=       0kB time=00:00:00.02 bitrate=  18.3kbits/s speed= 1.4x    frame=    0 fps=0.0 q=0.0 size=       0kB time=00:00:00.02 bitrate=  18.3kbits/s speed=0.0229x    frame=  163 fps=115 q=26.0 size=       0kB time=00:00:02.77 bitrate=   0.1kbits/s speed=1.95x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_1_audio_master.m4s' for reading
+frame=  323 fps=168 q=9.0 size=     256kB time=00:00:05.44 bitrate= 385.6kbits/s speed=2.83x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_1_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] No longer receiving playlist 2 ('./output/video_180p60.m3u8')
+[hls @ 0x560c4ba7e400] No longer receiving playlist 3 ('./output/video_720p60.m3u8')
+frame=  508 fps=210 q=9.0 size=     768kB time=00:00:08.51 bitrate= 739.2kbits/s speed=3.51x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_2_audio_master.m4s' for reading
+frame=  678 fps=232 q=9.0 size=    1536kB time=00:00:11.34 bitrate=1108.8kbits/s speed=3.88x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_2_video_1080p60.m4s' for reading
+frame=  834 fps=244 q=20.0 size=    2048kB time=00:00:13.95 bitrate=1202.5kbits/s speed=4.07x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_3_audio_master.m4s' for reading
+frame= 1017 fps=259 q=26.0 size=    2816kB time=00:00:17.00 bitrate=1356.8kbits/s speed=4.33x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_3_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/audio_segment_4_audio_master.m4s' for reading
+frame= 1198 fps=271 q=12.0 size=    3072kB time=00:00:20.01 bitrate=1257.7kbits/s speed=4.52x    frame= 1375 fps=279 q=17.0 size=    3584kB time=00:00:22.95 bitrate=1279.1kbits/s speed=4.66x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_4_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/audio_segment_5_audio_master.m4s' for reading
+frame= 1527 fps=281 q=26.0 size=    4096kB time=00:00:25.49 bitrate=1316.2kbits/s speed=4.69x    frame= 1653 fps=279 q=15.0 size=    4352kB time=00:00:27.60 bitrate=1291.5kbits/s speed=4.65x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_6_audio_master.m4s' for reading
+frame= 1801 fps=280 q=26.0 size=    4608kB time=00:00:30.05 bitrate=1255.9kbits/s speed=4.67x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_5_video_1080p60.m4s' for reading
+frame= 1967 fps=284 q=26.0 size=    4864kB time=00:00:32.83 bitrate=1213.6kbits/s speed=4.73x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_7_audio_master.m4s' for reading
+frame= 2127 fps=286 q=26.0 size=    5120kB time=00:00:35.49 bitrate=1181.6kbits/s speed=4.77x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_6_video_1080p60.m4s' for reading
+frame= 2235 fps=281 q=26.0 size=    5120kB time=00:00:37.29 bitrate=1124.8kbits/s speed= 4.7x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_8_audio_master.m4s' for reading
+frame= 2406 fps=285 q=26.0 size=    5376kB time=00:00:40.14 bitrate=1096.9kbits/s speed=4.76x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_7_video_1080p60.m4s' for reading
+frame= 2576 fps=288 q=26.0 size=    5376kB time=00:00:42.98 bitrate=1024.5kbits/s speed=4.81x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_9_audio_master.m4s' for reading
+frame= 2743 fps=290 q=26.0 size=    5632kB time=00:00:45.76 bitrate=1008.3kbits/s speed=4.84x    frame= 2905 fps=292 q=26.0 size=    5888kB time=00:00:48.46 bitrate= 995.2kbits/s speed=4.87x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_8_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/audio_segment_10_audio_master.m4s' for reading
+frame= 3072 fps=294 q=26.0 size=    5888kB time=00:00:51.24 bitrate= 941.3kbits/s speed= 4.9x    frame= 3252 fps=297 q=26.0 size=    6144kB time=00:00:54.25 bitrate= 927.8kbits/s speed=4.95x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_9_video_1080p60.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/audio_segment_11_audio_master.m4s' for reading
+frame= 3419 fps=299 q=26.0 size=    6400kB time=00:00:57.02 bitrate= 919.4kbits/s speed=4.98x    frame= 3584 fps=300 q=26.0 size=    6400kB time=00:00:59.77 bitrate= 877.1kbits/s speed=   5x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_12_audio_master.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_segment_10_video_1080p60.m4s' for reading
+frame= 3722 fps=299 q=26.0 size=    6656kB time=00:01:02.08 bitrate= 878.3kbits/s speed=4.98x    frame= 3874 fps=299 q=9.0 size=    6912kB time=00:01:04.61 bitrate= 876.3kbits/s speed=4.99x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_13_audio_master.m4s' for reading
+[hls @ 0x560c4ba7e400] Opening './output/video_segment_11_video_1080p60.m4s' for reading
+frame= 4015 fps=298 q=9.0 size=    7168kB time=00:01:06.96 bitrate= 876.9kbits/s speed=4.97x    frame= 4145 fps=297 q=9.0 size=    7424kB time=00:01:09.12 bitrate= 879.9kbits/s speed=4.95x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_14_audio_master.m4s' for reading
+frame= 4297 fps=297 q=9.0 size=    7680kB time=00:01:11.65 bitrate= 878.0kbits/s speed=4.96x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_12_video_1080p60.m4s' for reading
+frame= 4436 fps=296 q=9.0 size=    7680kB time=00:01:13.98 bitrate= 850.4kbits/s speed=4.94x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_15_audio_master.m4s' for reading
+frame= 4596 fps=297 q=9.0 size=    8192kB time=00:01:16.65 bitrate= 875.5kbits/s speed=4.96x    [hls @ 0x560c4ba7e400] Opening './output/video_segment_13_video_1080p60.m4s' for reading
+frame= 4745 fps=297 q=9.0 size=    8448kB time=00:01:19.12 bitrate= 874.6kbits/s speed=4.96x    [hls @ 0x560c4ba7e400] Opening './output/audio_segment_16_audio_master.m4s' for reading
+[out#0/mp4 @ 0x560c4baba100] video:7592kB audio:1260kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.229086%
+frame= 4826 fps=296 q=9.0 Lsize=    8961kB time=00:01:20.41 bitrate= 912.8kbits/s speed=4.94x    
+[aac @ 0x560c4c039d80] Qavg: 1609.059

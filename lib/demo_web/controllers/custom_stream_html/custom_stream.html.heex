@@ -1,10 +1,15 @@
 <.flash_group flash={@flash} /> 
 <!-- Nó là phần chuyển qua xem full list video stream -->
 <a href="/videos" target="_blank"
-  class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition">
+  class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition mr-3">
   List Video
 </a>
-<br>  
+
+<a href="/stream_key" target="_blank"
+  class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition mr-3">
+  Stream key setting
+</a>
+
 <!-- Nó là phần tải video -->
 <button id="convert-btn"
   class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition">
@@ -144,6 +149,8 @@
   document.getElementById("uploadButton").onclick = uploadAndSaveVideo;
 
 </script>
+
+
 
 
 <%= live_render(@conn, DemoWeb.ConfirmLive) %>

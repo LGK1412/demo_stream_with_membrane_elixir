@@ -3,9 +3,9 @@ import Config
 
 # Add your own Cloudinary configuration here.
 config :demo, Demo.CloudinaryUploader,
-  cloud_name: "CLOUDINARY_CLOUD_NAME",
-  api_key: "CLOUDINARY_API_KEY",
-  api_secret: "CLOUDINARY_API_SECRET"
+  cloud_name: "drsrv0xe6",
+  api_key: "414936843367861",
+  api_secret: "TN-UYPHKiVeU-rDuHh9qPVCiexU"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
