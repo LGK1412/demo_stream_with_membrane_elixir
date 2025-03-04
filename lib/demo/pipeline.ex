@@ -7,7 +7,17 @@ defmodule Demo.Pipeline do
   @transcode_targets [{1080, 60}, {720, 60}, {180, 60}]
 
   @impl true
-  def handle_init(_context, %{client_ref: client_ref}) do
+  def handle_init(_context, %{client_ref: client_ref, app: streamer_id}) do
+    # Lấy output_path để cho biết là stream đang lưu chỗ nào
+    stream_infor = Demo.Streams.get_stream_by_streamer_id(streamer_id)
+
+    case stream_infor do
+      nil -> Demo.Application.terminate_client_ref(client_ref)
+      _stream -> :ok
+    end
+
+    # Hết
+
     state = %{client_ref: client_ref, metadata: nil}
 
     structure = [
@@ -18,7 +28,7 @@ defmodule Demo.Pipeline do
         manifest_module: Membrane.HTTPAdaptiveStream.HLS,
         target_window_duration: :infinity,
         persist?: false,
-        storage: %Membrane.HTTPAdaptiveStream.Storages.FileStorage{directory: "output"}
+        storage: %Membrane.HTTPAdaptiveStream.Storages.FileStorage{directory: "output/#{stream_infor.id}"}
       }),
       get_child(:src)
       |> via_out(:audio)

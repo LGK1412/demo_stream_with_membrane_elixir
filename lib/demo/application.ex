@@ -11,8 +11,6 @@ defmodule Demo.Application do
 
   @impl true
   def start(_type, _args) do
-    File.mkdir_p("output")
-
     rtmp_server_options = %{
       port: @port,
       listen_options: [
@@ -22,28 +20,60 @@ defmodule Demo.Application do
         ip: @local_ip
       ],
       # Xử lý các tác vụ khi bấm OBS stream (ví dụ như stream key)
-      handle_new_client: fn client_ref, app, stream_key ->
-        stream_setting = Demo.Repo.get_by(Demo.StreamSetting, streamer_id: app)
-        stream_key_current = stream_setting && stream_setting.stream_key
+      handle_new_client: fn client_ref, streamer_id, stream_key ->
+        # Lấy stream_key từ database để check với cái từ OBS
+        stream_key_current =
+          case Demo.Repo.get_by(Demo.StreamSetting, streamer_id: streamer_id) do
+            nil -> nil
+            stream_setting -> stream_setting.stream_key
+          end
 
-        Logger.info("stream_key_current: #{stream_key_current }")
-        if stream_key == stream_key_current and stream_setting != nil do
+        Logger.info("stream_key_current: #{stream_key_current}")
+
+        if stream_key == stream_key_current and stream_key_current != nil and streamer_id != nil   do
+          # Tạo một stream_infor mới
+          IO.inspect(streamer_id, label: "📌 streamer_id trước khi tạo stream")
+
+          result =
+            Demo.Streams.create_stream_infor(%{
+              streamer_id: streamer_id,
+              stream_status: true
+            })
+
+          IO.inspect(result, label: "📌 Kết quả create_stream_infor")
+
+          # Lấy stream_id để tạo output_path
+          stream_infor = Demo.Streams.get_stream_by_streamer_id(streamer_id)
+
+          case stream_infor do
+            nil -> terminate_client_ref(client_ref)
+            stream -> IO.inspect(stream, label: "📌 Kết quả stream_infor")
+          end
+
+          stream_id = stream_infor.id
+
+          Logger.error("Error to get stream_id $#{stream_id}")
+
+          output_path = "#{stream_id}/index.m3u8"
+
+          case Demo.Streams.update_output_path(stream_infor, output_path) do
+            {:ok, updated_stream} -> IO.inspect(updated_stream, label: "✅ Đã cập nhật output_path")
+            {:error, changeset} -> IO.inspect(changeset.errors, label: "❌ Lỗi khi cập nhật output_path")
+          end
+
           Logger.info("Starting pipeline for stream key: #{stream_key} + #{stream_key_current}")
 
           # Gọi modal xác nhận và nhận kết quả
           result = confirm_action()
-          IO.puts("User selected: #{result}")
           Logger.info("User selected: #{result}")
-          Logger.debug("User selected: #{result}")
+          if !result do
+            terminate_client_ref(client_ref)
+          end
           # Xóa file output.mp4
 
           File.rm_rf("output.mp4")
 
-          File.rm_rf("output")
-
-          File.mkdir_p("output")
-
-
+          File.mkdir_p("output/#{stream_id}")
 
           Logger.info("Client ref: #{inspect(client_ref)}")
 
@@ -51,24 +81,17 @@ defmodule Demo.Application do
           {:ok, _sup, pid} =
             Membrane.Pipeline.start_link(Demo.Pipeline, %{
               client_ref: client_ref,
-              app: app,
+              app: streamer_id,
               stream_key: stream_key
             })
 
-          {Demo.ClientHandler, %{pipeline: pid}}
+          {Demo.ClientHandler, %{pipeline: pid, streamer_id: streamer_id}}
+
+
         else
           Logger.error("Invalid stream key: #{stream_key}")
 
-          Logger.info("Client ref: #{inspect(client_ref)}")
-
-          # ❌ pipeline_pid ở đây không có giá trị, phải lấy từ đâu đó
-          Membrane.Pipeline.terminate(client_ref,
-            timeout: 5000,
-            force?: false,
-            asynchronous?: true
-          )
-
-          {Demo.ClientHandler, %{pipeline: client_ref}}
+          terminate_client_ref(client_ref)
         end
       end
     }
@@ -81,7 +104,6 @@ defmodule Demo.Application do
       },
       # Start the Telemetry supervisor
       DemoWeb.Telemetry,
-
       Demo.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Demo.PubSub},
@@ -115,4 +137,13 @@ defmodule Demo.Application do
     end
   end
 
+  def terminate_client_ref(client_ref) do
+    Membrane.Pipeline.terminate(client_ref,
+      timeout: 5000,
+      force?: false,
+      asynchronous?: true
+    )
+
+    {Demo.ClientHandler, %{pipeline: client_ref}}
+  end
 end

@@ -18,7 +18,8 @@ defmodule DemoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/video/:filename", HlsController, :index
+    get "/stream/:streamer_name", PageController, :stream
+    get "/video/*filename", HlsController, :index
     get "/custom_stream", CustomStreamController, :index
     get "/convert", VideoController, :convert_and_download
     get "/check_status", VideoController, :check_status
